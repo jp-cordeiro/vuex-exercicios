@@ -30,7 +30,7 @@ export default {
     },
     methods: {
         //...mapMutations(['adicionarProduto']),
-        ...mapActions(['adicionarProduto']),
+        ...mapActions('carrinho',['adicionarProduto']),
         adicionar() {
             const produto = {
                 id: this.sequencia,
@@ -39,8 +39,8 @@ export default {
                 preco: this.preco
             }
             this.sequencia++
-            //this.adicionarProduto(produto)
-            this.$store.dispatch('adicionarProduto',produto)
+            this.adicionarProduto(produto)
+            //this.$store.dispatch('adicionarProduto',produto)
             //this.$store.commit('adicionarProduto',produto)
             // eslint-disable-next-line
             console.log(produto)

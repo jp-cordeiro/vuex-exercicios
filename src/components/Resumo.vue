@@ -14,7 +14,7 @@
 
     export default {
         computed: {
-            ...mapGetters({
+            ...mapGetters('carrinho',{
             total: 'valorTotal'
         })
         }

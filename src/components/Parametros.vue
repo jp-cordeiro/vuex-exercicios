@@ -14,6 +14,9 @@
 </template>
 
 <script>
+
+    import { mapMutations } from 'vuex'
+
 export default {
     computed:{
         quantidade:{
@@ -21,7 +24,8 @@ export default {
                 return this.$store.state.parametros.quantidade
             },
             set(valor){
-                this.$store.commit('setQuantidade',valor)
+                this.setQuantidade(valor)
+                //this.$store.commit('setQuantidade',valor)
             }
         },
         preco:{
@@ -29,9 +33,13 @@ export default {
                 return this.$store.state.parametros.preco
             },
             set(valor){
-                this.$store.commit('setPreco',valor)
+                this.setPreco(valor)
+                //this.$store.commit('setPreco',valor)
             }
         }
+    },
+    methods:{
+        ...mapMutations('parametros',['setQuantidade','setPreco']),
     }
 }
 </script>
